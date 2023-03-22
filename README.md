@@ -1,7 +1,8 @@
 # EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD
-
-## Aim: To Interface a Digital output (LED) to ARM IOT development board and write a  program to blink an led 
-## Components required: STM32 CUBE IDE, ARM IOT development board,  STM programmer tool.
+## Aim: 
+To Interface a Digital output (LED) to ARM IOT development board and write a  program to blink an led 
+## Components required: 
+STM32 CUBE IDE, ARM IOT development board,  STM programmer tool.
 ## Theory 
 The full form of an ARM is an advanced reduced instruction set computer (RISC) machine, and it is a 32-bit processor architecture expanded by ARM holdings. The applications of an ARM processor include several microcontrollers as well as processors. The architecture of an ARM processor was licensed by many corporations for designing ARM processor-based SoC products and CPUs. This allows the corporations to manufacture their products using ARM architecture. Likewise, all main semiconductor companies will make ARM-based SOCs such as Samsung, Atmel, TI etc.
 
@@ -29,8 +30,6 @@ The main features of LPC2148 include the following.
 •	The modes for power-conserving mainly comprise idle & power down.
 •	For extra power optimization, there are individual enable or disable of peripheral functions and peripheral CLK scaling.
  
- 
-
 ## Procedure:
  1. click on STM 32 CUBE IDE, the following screen will appear 
  ![image](https://user-images.githubusercontent.com/36288975/226189166-ac10578c-c059-40e7-8b80-9f84f64bf088.png)
@@ -45,14 +44,12 @@ The main features of LPC2148 include the following.
 4.select the program name 
 ![image](https://user-images.githubusercontent.com/36288975/226189316-09832a30-4d1a-4d4f-b8ad-2dc28f137711.png)
 
-
 5. corresponding ioc file will be generated automatically 
 ![image](https://user-images.githubusercontent.com/36288975/226189378-3abbdee2-0df6-470f-a3cd-79c74e3d3ad8.png)
 
 6.select the appropriate pins as gipo, in or out, USART or required options and configure 
 ![image](https://user-images.githubusercontent.com/36288975/226189403-f7179f1a-3eae-4637-826b-ab4ec35ba1e1.png)
 ![image](https://user-images.githubusercontent.com/36288975/226189425-2b2414ce-49b3-4b61-a260-c658cb2e4152.png)
-
 
 7.click on cntrl+S , automaticall C program will be generated 
 ![image](https://user-images.githubusercontent.com/36288975/226189443-8b43451d-0b14-47e4-a20b-cc09c6ad8458.png)
@@ -68,23 +65,35 @@ The main features of LPC2148 include the following.
 11. click on debug option 
 ![image](https://user-images.githubusercontent.com/36288975/226189625-37daa9a3-62e9-42b5-a5ce-2ac63345905b.png)
 
-
 12. connect the stm nucleo board and click on run 
 ![image](https://user-images.githubusercontent.com/36288975/226189649-b5dff389-91df-4eca-b84a-1127c6562637.png)
 
-
-
-
-
-
 ## STM 32 CUBE PROGRAM :
-
-
+```
+void led();  //Function declaration
+int main(void)
+{
+ while (1)
+  {
+	  led();
+  }
+  
+}
+void led()
+{
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+	HAL_Delay(3000);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	HAL_Delay(3000);
+}
+```
 
 ## Output  :
- 
- 
- 
- 
+### OFF:
+![off](https://user-images.githubusercontent.com/93427089/226925968-7bd4d168-7015-404d-8e9c-fb1123efa516.png)
+
+### ON:
+![on](https://user-images.githubusercontent.com/93427089/226925991-3d7ae653-cd9c-4c78-8541-12cd2aa459fc.png)
+
 ## Result :
 Interfacing a digital output with ARM microcontroller based IOT development is executed and the results are verified.
